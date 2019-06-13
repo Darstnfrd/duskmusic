@@ -1,0 +1,430 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+	<head>
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	
+		<link rel="stylesheet" href="css/bootstrap.min.css">
+		<link rel="stylesheet" type="text/css" href="css/style.css" />
+		<script type="text/javascript" src="js/jquery-1.10.2.min.js"></script>
+		<script type="text/javascript" src="js/bootstrap.min.js"></script>
+		
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		
+		<script> 
+			$(document).ready(function(){
+					
+					var player = document.getElementById("player");
+					player.volume = 0; /*0.1*/
+				
+				$(".nav-dark").click(function(){
+					$("#sun").animate({top:'125px'},2000);
+					$("#sun-reflect").animate({bottom:'100px'},2000);
+					$("#water-day").toggleClass("transparent");
+					$("#sky-day").toggleClass("transparent");
+					$("#hill-1-day").toggleClass("transparent");
+					$("#hill-2-day").toggleClass("transparent");
+					$("#hill-3-day").toggleClass("transparent");
+					$("#hill-1-day-reflect").toggleClass("transparent");
+					$("#hill-2-day-reflect").toggleClass("transparent");
+					$("#hill-1-reflect").toggleClass("transparent-1");
+					$("#hill-2-reflect").toggleClass("transparent-1");
+					$("#hill-3-reflect").toggleClass("transparent-1");
+					$("#hill-3-day-reflect").toggleClass("transparent");
+					
+				});
+			  
+				$(".nav-day").click(function(){
+					$("#sun").animate({top:'20px'},2000);
+					$("#sun-reflect").animate({bottom:'0px'},2000);
+					$("#water-day").toggleClass("transparent");
+					$("#sky-day").toggleClass("transparent");
+					$("#hill-1-day").toggleClass("transparent");
+					$("#hill-2-day").toggleClass("transparent");
+					$("#hill-3-day").toggleClass("transparent");
+					$("#hill-1-day-reflect").toggleClass("transparent");
+					$("#hill-2-day-reflect").toggleClass("transparent");
+					$("#hill-1-reflect").toggleClass("transparent-1");
+					$("#hill-2-reflect").toggleClass("transparent-1");
+					$("#hill-3-reflect").toggleClass("transparent-1");
+					$("#hill-3-day-reflect").toggleClass("transparent");
+				});
+				
+				$("#easteregg").click(function(){
+					$("#shark").toggleClass("transparent-1");
+					$("#shark").animate({left:'450px'},6000);
+					
+					$("#shark").on('animationend webkitAnimationEnd oanimationend msAnimationEnd',   
+					function(e) {
+					
+					//Search: Using jQuery to Detect When CSS3 Animations and Transitions End
+					// code to execute after animation ends
+
+					$("#shark").toggleClass("transparent");
+					$("#shark").css('display', 'none');
+					});
+					
+				});
+				
+				
+				
+				$('#showsModal').modal(options);
+				$('#musicModal').modal(options);
+				$('#newsModal').modal(options);
+				$('#fbnewsModal').modal(options);
+				
+				/*http://mattlockyer.com/2013/04/08/close-a-twitter-bootstrap-popover-when-clicking-outside/------------------------*/
+				$('body').on('click', function (e) {
+					$('[data-toggle="modal"]').each(function () {
+						//the 'is' for buttons that trigger popups
+						//the 'has' for icons within a button that triggers a popup
+						if (!$(this).is(e.target) && $(this).has(e.target).length === 0 && $('.modal').has(e.target).length === 0) {
+							$(this).modal('hide');
+						}
+					});
+				});
+				
+				$('#play').css('display', 'none');
+					$('#pause').css('display', 'block');
+				
+			});
+		</script>
+		
+		<script>
+		$(document).ready(function(){
+			function playPause(){
+					var player = document.getElementById("player");
+					
+					if ( player.paused || player.ended) {
+						$('#responsive-musicplayer-playpausebtn #play').css('display', 'none');
+						$('#responsive-musicplayer-playpausebtn #pause').css('display', 'block');
+						player.play();
+					}
+					else {
+						$('#responsive-musicplayer-playpausebtn #pause').css('display', 'none');
+						$('#responsive-musicplayer-playpausebtn #play').css('display', 'block');
+						player.pause();
+					}
+				}
+				
+			$('#responsive-musicplayer-mutebtn').click(function(){
+				var player = document.getElementById("player");
+				player.muted = true;
+			}
+		});
+		</script>
+		
+		
+		
+	</head>
+	
+	<body>
+
+		<div id="fb-root"></div>
+<script>(function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0];
+  if (d.getElementById(id)) return;
+  js = d.createElement(s); js.id = id;
+  js.src = "//connect.facebook.net/en_GB/sdk.js#xfbml=1&version=v2.5&appId=375381009277486";
+  fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));</script>
+	
+		<div class="container-fluid">
+		
+			<nav id="header" class="navbar navbar-default navbar-fixed-bottom" role="navigation">
+			<div class="header-wrapper">
+				<!-- Brand and toggle get grouped for better mobile display -->
+				<!--div class="navbar-header">
+				  <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+					<span class="sr-only">Toggle navigation</span>
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+				  </button>
+				  <a class="navbar-brand" href="#"></a>
+				</div-->
+
+				<!-- Collect the nav links, forms, and other content for toggling -->
+				<div id="bs-example-navbar-1"> <!--div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1"-->
+					<ul id="nav" class="nav navbar-nav">
+						<!--li><a class="nav-dark" href="#" data-toggle="modal" data-target="#newsModal">News</a></li-->
+						<li><a class="nav-dark" href="#" data-toggle="modal" data-target="#fbnewsModal">News</a></li>
+						<li><a class="nav-dark" href="#" data-toggle="modal" data-target="#musicModal">Music</a></li>
+						<li><a class="nav-dark" href="#" data-toggle="modal" data-target="#showsModal">Gigs</a></li>
+						<li id="responsive-links">
+							<div class="col-sm-12 col-md-12">
+								<a href="https://www.facebook.com/DuskMusicNZ"><img class="responsive-links-img" src="images/nav-facebook.png" alt=""/></a>
+								<a href="https://soundcloud.com/duskmusic-2"><img class="responsive-links-img" src="images/nav-soundcloud.png" alt=""/></a>
+							</div>
+						</li> 
+						<li id="default-dropdown" class="dropdown">
+							<a href="#" class="dropdown-toggle" data-hover="dropdown">Links <span class="caret"></span></a>
+					  
+							<ul class="dropdown-menu" role="menu">
+								<li><a href="https://www.facebook.com/DuskMusicNZ"><img src="images/nav-facebook.png" height="20" alt=""/> Facebook</a></li>
+								<li><a href="https://soundcloud.com/duskmusic-2"><img src="images/nav-soundcloud.png" height="20" alt=""/> Soundcloud</a></li>
+								<!--li class="divider"></li-->
+								<!--li><a href="" class="nav-dark" data-toggle="modal" data-target="#myModal"><img src="images/nav-gmail.png" width="20" alt=""/> Gmail</a></li-->
+							</ul>
+			    
+						</li>
+						
+						<!-- Link trigger modal -->
+						
+						
+						
+						
+					
+					</ul><!-- end of nav -->
+					
+					<ul class="nav navbar-nav navbar-right">
+						
+						<!--li class="dropdown">
+							<a href="#" class="dropdown-toggle" data-hover="dropdown"><span class="glyphicon glyphicon-headphones"></span> <span class="caret"></span></a>
+					  
+							<ul class="dropdown-menu" role="menu">
+								<li><a href="sounds/Mountains.mp3"><span class="glyphicon glyphicon-play"></span> Mountains</a></li>
+								<li><a href="sounds/Sunny.mp3">Sunny</a></li>
+								<li><a href="#">Song 3</a></li>
+							</ul>
+			    
+						</li-->
+						<li class="col-md-12 col-sm-12">
+							
+							<a id=""><span id="player-songtitle">Mountains</span>
+							
+								<audio id="player" controls="true" loop="true" autoplay="true">
+									<source src="sounds/Mountains.mp3" type="audio/mpeg" />
+									<source src="sounds/Sunny.mp3" type="audio/mpeg" />
+								</audio>
+							</a>
+						</li>	
+							<div id="responsive-musicplayer">
+								<div class="col-md-12 col-sm-12">
+									<a id="responsive-musicplayer-playpausebtn" href="#" onclick="playPause()">
+										<span id="play" class="glyphicon glyphicon-play"></span>
+										<span id="pause" class="glyphicon glyphicon-pause"></span>
+									</a>
+								
+									<a id="responsive-musicplayer-mutebtn" href="#"><span class="glyphicon glyphicon-volume-off"></span></a>
+									<a id="responsive-musicplayer-volumebtn" href="#"><span class="glyphicon glyphicon-volume-up"></span></a>
+								</div>
+							</div>
+							
+						
+						
+								
+								
+								
+								
+								
+						<!--Mountains 
+								<audio controls>
+								<source src="sounds/Mountains.mp3" type="audio/mpeg">
+								Your browser does not support the audio element.
+							</audio-->
+						</li>
+					</ul>
+					
+					
+				</div><!-- /.navbar-collapse -->
+			</div><!-- /.container-fluid -->
+		</nav>
+		<a id="easteregg" href="#"><div class="img-responsive" id="logo"></div></a>
+		<div class="fr" id="copyright">Copyright &copy 2014 Dusk Music. All rights reserved. Design by <a href="http://darrenallan.hostoi.com/">Darren Allan</a></div>
+		<div id="suncontainer">
+			<div class="wrapper">
+				<div id="sun"></div>
+				<div id="shark"></div>
+				<div id="sun-reflect"></div>
+				<div id="hill-3"></div>
+				<div id="hill-3-reflect"></div>
+				<div id="hill-3-day"></div>
+				<div id="hill-3-day-reflect"></div>
+			</div>
+		</div>
+		<div id="sky"></div>
+		<div id="sky-day"></div>
+		
+		
+		<div id="water"></div>
+		<div id="water-day"></div>
+		
+		
+		
+		
+		<div id="hill-1"></div>
+		<div id="hill-1-day"></div>
+		<div id="hill-1-reflect"></div>
+		<div id="hill-1-day-reflect"></div>
+		<div id="hill-2"></div>
+		<div id="hill-2-day"></div>
+		<div id="hill-2-reflect"></div>
+		<div id="hill-2-day-reflect"></div>
+		
+		
+		<!-- Latest news Modal -->
+		<div class="modal fade nav-day" id="newsModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+		  <div class="modal-dialog">
+			<div class="modal-content">
+				
+			  <div class="modal-header">
+			  <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+				<h4 class="modal-title" id="myModalLabel">Latest News</h4>
+			  </div>
+			  <div class="modal-body">
+				
+				<form role="form">
+				  <div class="form-group">
+					<label>Tuesday, 9 September 2014</label>
+					<h5>Welcome to the new Dusk website</h5>
+					<h6>We're still experiencing technical difficulties but still feel free to look around.</br></br>And other great news, our debut album will be coming soon!</h6>
+				  </div> 
+				  
+				</form>
+			  </div>
+			  <div class="modal-footer">
+				<!--button type="button" class="btn btn-default nav-day" data-dismiss="modal">Close</button-->
+			  </div>
+			</div>
+		  </div>
+		</div><!-- end of modal -->
+		
+		<!-- Facebook news Modal -->
+		<div class="modal fade nav-day" id="fbnewsModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+		  <div class="modal-dialog">
+			<div class="modal-content">
+				
+			  <div class="modal-header">
+			  <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+				<h4 class="modal-title" id="myModalLabel">Latest News</h4>
+			  </div>
+			  <div class="modal-body">
+					
+					<div class="fb-page" data-href="https://www.facebook.com/prnmusic/" data-width="568" data-height="395" data-small-header="true" data-adapt-container-width="true" data-hide-cover="false" data-show-facepile="false" data-show-posts="true"><div class="fb-xfbml-parse-ignore"><blockquote cite="https://www.facebook.com/prnmusic/"><a href="https://www.facebook.com/prnmusic/">P.R.N</a></blockquote></div></div>
+					<!--div class="fb-like-box" data-href="https://www.facebook.com/DuskMusicNZ" data-width="568" data-height="395" data-colorscheme="dark" data-show-faces="false" data-header="false" data-stream="true" data-show-border="false"></div-->
+					<!--iframe id="fb-like-box" src="http://www.facebook.com/plugins/likebox.php?href=https%3A%2F%2Fwww.facebook.com%2FDuskMusicNZ&width=568&height=395&colorscheme=dark&show_faces=false&header=false&stream=true&show_border=false&appId=375381009277486"></iframe>
+					<!--iframe src="//www.facebook.com/plugins/likebox.php?href=https%3A%2F%2Fwww.facebook.com%2FDuskMusicNZ&amp;width=568&amp;height=395&amp;colorscheme=dark&amp;show_faces=false&amp;header=false&amp;stream=true&amp;show_border=false&amp;appId=375381009277486" scrolling="no" frameborder="0" style="border:none; overflow:hidden; width:568px; height:395px;" allowTransparency="true"></iframe-->
+			  </div>
+			  <div class="modal-footer">
+				<!--button type="button" class="btn btn-default nav-day" data-dismiss="modal">Close</button-->
+			  </div>
+			</div>
+		  </div>
+		</div><!-- end of modal -->
+		
+		<!-- Music Modal -->
+		<div class="modal fade nav-day" id="musicModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+		  <div class="modal-dialog">
+			<div class="modal-content">
+				
+			  <div class="modal-header">
+			  <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+				<h4 class="modal-title" id="myModalLabel">Music</h4>
+			  </div>
+			  <div class="modal-body">
+				
+				<form role="form">
+				  <div class="form-group">
+					<label>Dusk Debut EP</label>
+					<h5><img src="images/comingsoon.jpg" alt="Dusk album cover" width="70%"/></h5>
+					<h6></h6>
+					
+				  </div>
+				  
+				  
+				  
+				</form>
+			  </div>
+			  <div class="modal-footer">
+				<!--button type="button" class="btn btn-default nav-day" data-dismiss="modal">Close</button-->
+			  </div>
+			</div>
+		  </div>
+		</div><!-- end of modal -->
+		
+		<!-- Upcoming shows Modal -->
+		<div class="modal fade nav-day" id="showsModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+		  <div class="modal-dialog">
+			<div class="modal-content">
+			  <div class="modal-header">
+			  <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+				<h4 class="modal-title" id="myModalLabel">Upcoming Gigs</h4>
+			  </div>
+			  <div class="modal-body">
+				
+				<form role="form">
+					<div class="form-group">
+					<label for="exampleInputEmail1">Wednesday, 19 November 2014</label>
+					<h5>Southern Cross Garden Bar Restaurant</h5>
+					<h6>39 Abel Smith St, Te Aro, Wellington</h6>
+					<script type="text/javascript" src="http://maps.google.com/maps/api/js?sensor=false"></script><div class="google-map" style="overflow:hidden;height:200px;width:400px;"><div id="gmap_canvas" style="height:200px;width:400px;"></div><style>#gmap_canvas img{max-width:none!important;background:none!important}</style><a class="google-map-code" href="http://www.mapsembed.com" id="get-map-data">www.mapsembed.com</a></div><script type="text/javascript"> function init_map(){var myOptions = {zoom:16,center:new google.maps.LatLng(-41.2964952,174.7744768),mapTypeId: google.maps.MapTypeId.ROADMAP};map = new google.maps.Map(document.getElementById("gmap_canvas"), myOptions);marker = new google.maps.Marker({map: map,position: new google.maps.LatLng(-41.2964952, 174.7744768)});infowindow = new google.maps.InfoWindow({content:"<b>Southern Cross Garden Bar Restaurant</b><br/>39 Abel Smith St, Te Aro, Wellington<br/> Wellington" });google.maps.event.addListener(marker, "click", function(){infowindow.open(map,marker);});}google.maps.event.addDomListener(window, 'load', init_map);</script>
+				  
+				  </div>
+				
+				  <div class="form-group">
+					<label for="exampleInputEmail2">Wednesday, 10 September 2014</label>
+					<h5>Southern Cross Garden Bar Restaurant</h5>
+					<h6>39 Abel Smith St, Te Aro, Wellington</h6>
+					<script type="text/javascript" src="http://maps.google.com/maps/api/js?sensor=false"></script><div class="google-map" style="overflow:hidden;height:200px;width:400px;"><div id="gmap_canvas" style="height:200px;width:400px;"></div><style>#gmap_canvas img{max-width:none!important;background:none!important}</style><a class="google-map-code" href="http://www.mapsembed.com" id="get-map-data">www.mapsembed.com</a></div><script type="text/javascript"> function init_map(){var myOptions = {zoom:16,center:new google.maps.LatLng(-41.2964952,174.7744768),mapTypeId: google.maps.MapTypeId.ROADMAP};map = new google.maps.Map(document.getElementById("gmap_canvas"), myOptions);marker = new google.maps.Marker({map: map,position: new google.maps.LatLng(-41.2964952, 174.7744768)});infowindow = new google.maps.InfoWindow({content:"<b>Southern Cross Garden Bar Restaurant</b><br/>39 Abel Smith St, Te Aro, Wellington<br/> Wellington" });google.maps.event.addListener(marker, "click", function(){infowindow.open(map,marker);});}google.maps.event.addDomListener(window, 'load', init_map);</script>
+				  
+				  </div>
+				   
+				</form>
+			  </div>
+			  <div class="modal-footer">
+				<!--button type="button" class="btn btn-default nav-day" data-dismiss="modal">Close</button-->
+			  </div>
+			</div>
+		  </div>
+		</div><!-- end of modal -->
+		
+		<!-- Gmail Modal -->
+		<!--div class="modal fade nav-day" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+		  <div class="modal-dialog">
+			<div class="modal-content">
+			  <div class="modal-header">
+				
+				<h4 class="modal-title" id="myModalLabel">Contact Us</h4>
+			  </div>
+			  <div class="modal-body">
+				
+				<form role="form">
+					<div class="form-group">
+					<label for="exampleInputEmail1">Your email</label>
+					<input type="email" class="form-control" id="exampleInputEmail1" placeholder="Enter email">
+				  </div>
+				  <div class="form-group">
+					<label for="exampleInputEmail1">Subject</label>
+					<input type="text" class="form-control" id="exampleInputEmail1" placeholder="Enter subject">
+				  </div>
+				  
+				  <div class="form-group">
+					<label for="exampleInputPassword1">Your message</label>
+					<textarea col="20" rows="7" class="form-control" id="modal-message" placeholder="Enter message"></textarea>
+				  </div>  
+				</form>
+			
+			  </div>
+			  <div class="modal-footer">
+				<button type="button" class="btn btn-default nav-day" data-dismiss="modal">Close</button>
+				<button type="button" class="btn btn-primary"><span class="glyphicon glyphicon-send"></span> Send Message</button>
+			  </div>
+			</div>
+		  </div>
+		</div><!-- end of modal -->
+		
+		
+		</div>
+	</body>
+	
+	<!-- sunset sky: http://all-free-download.com/free-photos/sunset_sky_background_192376.html -->
+	<!-- blue sky: http://all-free-download.com/free-photos/white_beach_and_blue_sky_204719.html -->
+	<!-- ocean: http://all-free-download.com/free-photos/sea_ocean_wide_217925.html -->
+	
+	<!-- image transition: http://css3.bradshawenterprises.com/cfimg/ -->
+	<!-- audio playlist: http://www.lastrose.com/html5-audio-video-playlist/ -->
+	
+	<!-- App ID: 375381009277486
+		App Name: Dusk Music -->
+</html>	
